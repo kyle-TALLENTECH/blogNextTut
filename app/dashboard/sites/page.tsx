@@ -61,7 +61,7 @@ export default async function SitesRoute() {
                                     {item.name}
                                 </CardTitle>
                                 <CardDescription>
-                                    {item.decription}
+                                    {item.description}
                                 </CardDescription>
 
                             </CardHeader>
