@@ -1,6 +1,6 @@
 "use client"
 
-import { CreatePostAction, EditPostAction } from "@/app/actions"
+import { CreatePostAction, EditPostActions } from "@/app/actions"
 import TailwindEditor from "@/app/components/dashboard/EditorWrapper"
 import { SubmitButton } from "@/app/components/dashboard/SubmitButtons"
 import { UploadDropzone } from "@/app/utils/UploadthingComponents"
@@ -41,9 +41,9 @@ export function EditArticleForm({ data, siteId }: iAppProps) {
     const [title,setTitle] = useState<undefined|string>(data.title)
     const [slug,setSlugValue] = useState<undefined|string>(data.slug)
 
-    const [lastResult, action] = useActionState(EditPostAction,undefined)
+    const [lastResult, action] = useActionState(EditPostActions, undefined)
     const [form, fields] = useForm({
-        lastResult: lastResult ? lastResult() : undefined,
+        lastResult: lastResult ? lastResult : undefined,
         onValidate({formData}) {
             return parseWithZod(formData, {schema:PostSchema})
         },
