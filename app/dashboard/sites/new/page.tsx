@@ -32,7 +32,7 @@ import { SubmitButton } from "@/app/components/dashboard/SubmitButtons";
 export default function NewSiteRoute() {
     const [lastResult, action] = useActionState(CreateSiteAction, undefined);
     const [form,fields] = useForm({
-        lastResult: lastResult ? lastResult() : undefined,
+        lastResult: lastResult ? lastResult : undefined,
         onValidate({ formData }) {
             return parseWithZod(formData, {
                 schema: siteSchema, 
