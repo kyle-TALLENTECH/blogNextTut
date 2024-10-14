@@ -38,18 +38,18 @@ export default async function PricingPage() {
     "use server";
 
 
-    const session = await stripe.billingPortal.sessions.create({
-        customer: data?.User?.customerId as string,
-        return_url: "http://localhost:3000/dashboard",
-      });
-
     // const session = await stripe.billingPortal.sessions.create({
-    //   customer: data?.User?.customerId as string,
-    //   return_url:
-    //     process.env.NODE_ENV === "production"
-    //       ? "https://blog-marshal.vercel.app/dashboard"
-    //       : "http://localhost:3000/dashboard",
-    // });
+    //     customer: data?.User?.customerId as string,
+    //     return_url: "http://localhost:3000/dashboard",
+    //   });
+
+    const session = await stripe.billingPortal.sessions.create({
+      customer: data?.User?.customerId as string,
+      return_url:
+        process.env.NODE_ENV === "production"
+          ? "https://blog-marshal.vercel.app/dashboard"
+          : "http://localhost:3000/dashboard",
+    });
 
     return redirect(session.url);
   }
