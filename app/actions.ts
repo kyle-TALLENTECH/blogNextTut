@@ -230,11 +230,11 @@ export async function CreateSubscription() {
     },
     success_url:
       process.env.NODE_ENV === "production"
-        ? "https://blog-marshal.vercel.app/dashboard/payment/success"
+        ? "https://blog-next-tut.vercel.app/dashboard/payment/success"
         : "http://localhost:3000/dashboard/payment/success",
     cancel_url:
       process.env.NODE_ENV === "production"
-        ? "https://blog-marshal.vercel.app/dashboard/payment/cancelled"
+        ? "https://blog-next-tut.vercel.app/dashboard/payment/cancelled"
         : "http://localhost:3000/dashboard/payment/cancelled",
   });
 
